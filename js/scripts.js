@@ -88,3 +88,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+// Mobile Navbar Dropdown
+const navbarToggle = document.getElementById('navbar-toggle');
+const navbarMenu = document.getElementById('navbar-menu');
+const navLinks = navbarMenu ? navbarMenu.querySelectorAll('nav a') : [];
+
+if (navbarToggle && navbarMenu) {
+  navbarToggle.addEventListener('click', () => {
+    navbarToggle.classList.toggle('active');
+    navbarMenu.classList.toggle('active');
+    // Animate nav links with stagger
+    navLinks.forEach((link, i) => {
+      link.style.setProperty('--i', i);
+    });
+  });
+  // Optional: Close menu when a link is clicked (for better UX)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbarToggle.classList.remove('active');
+      navbarMenu.classList.remove('active');
+    });
+  });
+}
