@@ -26,7 +26,65 @@ function initSlideshow() {
     setInterval(nextSlide, slideInterval);
 }
 
+// Clients Carousel Auto-Scroll Logic
+function initClientsCarousel() {
+    const carousel = document.querySelector('.clients-carousel');
+    if (!carousel) return;
+    // Duplicate logos for seamless loop
+    carousel.innerHTML += carousel.innerHTML;
+    let isPaused = false;
+    let scrollAmount = 0;
+    const speed = 1; // px per frame
+    const wrapper = document.querySelector('.carousel-wrapper');
+
+    function scroll() {
+        if (!isPaused) {
+            scrollAmount += speed;
+            if (scrollAmount >= carousel.scrollWidth / 2) {
+                scrollAmount = 0;
+            }
+            carousel.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+        requestAnimationFrame(scroll);
+    }
+
+    wrapper.addEventListener('mouseenter', () => { isPaused = true; });
+    wrapper.addEventListener('mouseleave', () => { isPaused = false; });
+
+    scroll();
+}
+
 // Initialize slideshow when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initSlideshow();
+    initClientsCarousel();
 });
+
+// Team modal popup logic
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('team-modal');
+    if (!modal) return;
+    const modalBody = modal.querySelector('.team-modal-body');
+    const closeBtn = modal.querySelector('.team-modal-close');
+    const overlay = modal.querySelector('.team-modal-overlay');
+    document.querySelectorAll('.team-member .team-photo').forEach(photo => {
+      photo.addEventListener('click', function(e) {
+        const member = this.closest('.team-member');
+        const bio = member.getAttribute('data-bio').replace(/\\n/g, '<br><br>');
+        modalBody.innerHTML = bio;
+        modal.style.display = 'flex';
+        setTimeout(() => { modal.classList.add('active'); }, 10);
+      });
+    });
+    function closeModal() {
+      modal.classList.remove('active');
+      setTimeout(() => { modal.style.display = 'none'; }, 200);
+    }
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  });
+})();

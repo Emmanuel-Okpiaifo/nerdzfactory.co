@@ -277,7 +277,7 @@ html {
 /* Services Section */
 .services {
     padding: 80px 0;
-    background: #fff;
+    background: #E7F6FF;
     color: #0B1120;
     overflow: visible;
     position: relative;
@@ -807,4 +807,309 @@ html {
     transition: none !important;
     transform: none !important;
     gap: 40px;
+}
+
+/* Clients & Partners Carousel Section (Minimal White Style) */
+.clients-carousel-section.program-partners {
+  background: #fff;
+  padding: 60px 0 40px 0;
+  margin-top: 0;
+}
+.clients-carousel-section.program-partners h2 {
+  color: #18233a;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+.clients-carousel-section.program-partners h2::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background-color: #F7A51C;
+  border-radius: 2px;
+}
+.program-partners-carousel {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+.clients-carousel-grid {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+  animation: clientsScroll 36s linear infinite;
+  padding: 1rem 0;
+  min-width: fit-content;
+  white-space: nowrap;
+}
+@keyframes clientsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.program-partner-item {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  background: none;
+  box-shadow: none;
+}
+.program-partner-item:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+.program-partner-item a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.program-partner-item img {
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1) contrast(1.1);
+  opacity: 0.7;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+.program-partner-item:hover img {
+  filter: grayscale(0%) brightness(1.1) contrast(1.2);
+  opacity: 1;
+}
+.program-partners-carousel::before,
+.program-partners-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.program-partners-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+.program-partners-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+@media (max-width: 900px) {
+  .clients-carousel-section.program-partners h2 {
+    font-size: 1.5rem;
+  }
+  .clients-carousel-grid {
+    gap: 2.5rem;
+  }
+  .program-partner-item img {
+    max-width: 90px;
+  }
+  .program-partners-carousel {
+    max-width: 98vw;
+  }
+}
+@media (max-width: 600px) {
+  .clients-carousel-section.program-partners {
+    padding: 36px 0 20px 0;
+  }
+  .clients-carousel-section.program-partners h2 {
+    font-size: 1.1rem;
+  }
+  .program-partner-item img {
+    max-width: 200px;
+  }
+  .clients-carousel-grid {
+    gap: 1.2rem;
+    animation: clientsScroll 18s linear infinite;
+  }
+}
+
+/* Meet The Team Section */
+.team-section {
+  background: #fff;
+  padding: 70px 0 50px 0;
+}
+.team-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #18233a;
+  margin-bottom: 40px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-items: center;
+}
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.team-photo {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: #e7f6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.team-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #18233a;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+.team-role {
+  font-size: 1.08rem;
+  color: #6b7a90;
+  font-weight: 400;
+}
+@media (max-width: 1100px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 12px;
+    max-width: 700px;
+  }
+  .team-photo {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 18px;
+  }
+  .team-name {
+    font-size: 1.1rem;
+  }
+  .team-role {
+    font-size: 0.98rem;
+  }
+}
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+    max-width: 98vw;
+  }
+  .team-photo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+  }
+  .team-title {
+    font-size: 1.5rem;
+  }
+  .team-name {
+    font-size: 1rem;
+  }
+  .team-role {
+    font-size: 0.92rem;
+  }
+}
+
+/* Team Modal Popup Styles */
+.team-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.team-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.team-modal-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30, 36, 50, 0.45);
+  z-index: 1;
+}
+.team-modal-content {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 540px;
+  width: 92vw;
+  padding: 36px 32px 28px 32px;
+  box-shadow: 0 8px 32px rgba(30,36,50,0.18);
+  font-size: 1.08rem;
+  color: #222b3a;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  animation: fadeInModal 0.2s;
+}
+.team-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #e7f6ff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.6rem;
+  color: #222b3a;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 3;
+}
+.team-modal-close:hover {
+  background: #f7a51c;
+  color: #fff;
+}
+.team-modal-body {
+  margin-top: 8px;
+  font-size: 1.08rem;
+  color: #222b3a;
+  font-family: 'Montserrat', sans-serif;
+}
+@keyframes fadeInModal {
+  from { transform: scale(0.97) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+@media (max-width: 600px) {
+  .team-modal-content {
+    padding: 20px 8px 16px 8px;
+    max-width: 98vw;
+    font-size: 0.98rem;
+  }
+  .team-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
 }
