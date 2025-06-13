@@ -1940,79 +1940,72 @@ html {
 }
 
 .privacy-policy-wrapper {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 12px 60px 12px;
-  background: transparent;
+    padding: 40px 8%;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #e6f5ff;
 }
+
 .privacy-policy-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #18233a;
-  margin-bottom: 36px;
-  text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #0B1120;
 }
+
 .privacy-policy-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(30,36,50,0.07);
-  padding: 36px 24px;
-  width: 100%;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
+
 .privacy-policy-card embed,
-.privacy-policy-card object {
-  width: 100%;
-  height: 800px;
-  border-radius: 8px;
-  border: none;
-  -webkit-overflow-scrolling: touch;
+.privacy-policy-card iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+    min-height: 600px;
 }
 
 @media (max-width: 1000px) {
-  .privacy-policy-card {
-    max-width: 98vw;
-    padding: 18px 4px;
-  }
-  .privacy-policy-wrapper {
-    padding: 0 2vw 40px 2vw;
-  }
-  .privacy-policy-card embed,
-  .privacy-policy-card object {
-    height: 600px;
-  }
+    .privacy-policy-card {
+        width: 95%;
+    }
+    .privacy-policy-wrapper {
+        padding: 30px 4%;
+    }
+    .privacy-policy-card embed,
+    .privacy-policy-card iframe {
+        height: 500px;
+        min-height: 500px;
+    }
 }
 
 @media (max-width: 600px) {
-  .privacy-policy-title {
-    font-size: 1.2rem;
-    margin-bottom: 18px;
-  }
-  .privacy-policy-card {
-    padding: 8px 0;
-  }
-  .privacy-policy-card embed,
-  .privacy-policy-card object {
-    height: 500px;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
+    .privacy-policy-title {
+        font-size: 24px;
+    }
+    .privacy-policy-card {
+        width: 100%;
+    }
+    .privacy-policy-card embed,
+    .privacy-policy-card iframe {
+        height: 500px;
+        min-height: 500px;
+    }
 }
 
 @media (max-width: 400px) {
-  .privacy-policy-card embed,
-  .privacy-policy-card object {
-    height: 400px;
-  }
+    .privacy-policy-card embed,
+    .privacy-policy-card iframe {
+        height: 450px;
+        min-height: 450px;
+    }
 }
 
