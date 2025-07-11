@@ -15,7 +15,6 @@
 </head>
 
 <body>
-  <!-- Include your existing navbar and topbar here -->
   <div class="topbar" role="banner">
     <div class="left">
       <div class="contact">
@@ -67,42 +66,23 @@
     </div>
   </div>
 
-  <!-- TechTalk Hero Section -->
-  <section class="services-hero">
-    <div class="services-hero-bg"></div>
-    <div class="services-hero-content">
-      <h1>TechTalk Series</h1>
-      <p>Insights and discussions on technology and innovation</p>
-    </div>
-  </section>
+  <!-- Main content area for TechTalk Series -->
+  <main>
+    <!-- Add your TechTalk content here -->
+  </main>
 
-  <!-- TechTalk Content Section -->
-  <section class="techtalk-main-section">
-    <div class="container">
-      <div id="techtalk-loading" class="loading-spinner">
-        <div class="spinner"></div>
-        <p>Loading TechTalk episodes...</p>
-      </div>
-      <div id="techtalk-content" class="techtalk-grid" style="display: none;">
-        <!-- TechTalk episodes will be loaded here dynamically -->
-      </div>
-      <div id="techtalk-error" class="error-message" style="display: none;">
-        <p>Unable to load TechTalk episodes at the moment. Please visit our <a href="https://nerdzfactory.co/techtalk/" target="_blank">WordPress site</a> for the latest updates.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <script src="js/scripts.js"></script>
+  <!-- Footer Section -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-about">
         <img src="https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png" alt="NerdzFactory Logo" class="footer-logo">
         <p class="footer-description">NerdzFactory is a social innovation and human capital development company that leverages technology to transform lives, businesses and society.</p>
         <div class="footer-socials">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
       <div class="footer-links">
@@ -122,83 +102,17 @@
       <div class="footer-contact">
         <h3>Get In Touch</h3>
         <ul>
-          <li><i class="fas fa-map-marker-alt footer-pin"></i><strong>Nigeria</strong> – 2, Insha Allah close, Off Ramat Crescent, Ogudu GRA, Ojota, Lagos.</li>
-          <li><i class="fas fa-map-marker-alt footer-pin"></i><strong>Canada</strong> – 47 Big Blue Stem Rd, Winnipeg MB R2G 4L9.</li>
-          <li><i class="fas fa-map-marker-alt footer-pin"></i><strong>USA</strong> – 7120 S. Wabash Avenue, Chicago, Illinois 60619.</li>
+          <li><span class="footer-pin">📍</span><b> Nigeria</b> – 2, Insha Allah close, Off Ramat Crescent, Ogudu GRA, Ojota, Lagos.</li>
+          <li><span class="footer-pin">📍</span><b> Canada</b> – 47 Big Blue Stem Rd, Winnipeg MB R2G 4L9.</li>
+          <li><span class="footer-pin">📍</span><b> USA</b> – 7120 S. Wabash Avenue, Chicago, Illinois 60619.</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Copyright © 2025 NerdzFactory Company | Powered by NerdzFactory Company</p>
+      Copyright © 2025 NerdzFactory Company | Powered by NerdzFactory Company
     </div>
   </footer>
-
-  <script>
-    // WordPress REST API Integration for TechTalk Series
-    document.addEventListener('DOMContentLoaded', function() {
-      const techtalkContainer = document.getElementById('techtalk-content');
-      const loadingSpinner = document.getElementById('techtalk-loading');
-      const errorMessage = document.getElementById('techtalk-error');
-
-      // WordPress REST API endpoint for TechTalk episodes
-      const apiUrl = 'https://nerdzfactory.co/wp-json/wp/v2/posts?categories=techtalk&per_page=12&_embed';
-
-      async function loadTechTalkEpisodes() {
-        try {
-          const response = await fetch(apiUrl);
-          
-          if (!response.ok) {
-            throw new Error('Failed to fetch TechTalk episodes');
-          }
-
-          const episodes = await response.json();
-          
-          if (episodes.length === 0) {
-            throw new Error('No TechTalk episodes found');
-          }
-
-          displayTechTalkEpisodes(episodes);
-          loadingSpinner.style.display = 'none';
-          techtalkContainer.style.display = 'grid';
-        } catch (error) {
-          console.error('Error loading TechTalk episodes:', error);
-          loadingSpinner.style.display = 'none';
-          errorMessage.style.display = 'block';
-        }
-      }
-
-      function displayTechTalkEpisodes(episodes) {
-        techtalkContainer.innerHTML = episodes.map(episode => {
-          const featuredImage = episode._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png';
-          const excerpt = episode.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-          
-          return `
-            <div class="techtalk-card">
-              <div class="techtalk-image">
-                <img src="${featuredImage}" alt="${episode.title.rendered}">
-              </div>
-              <div class="techtalk-content">
-                <h3>${episode.title.rendered}</h3>
-                <p>${excerpt}</p>
-                <div class="techtalk-meta">
-                  <span class="techtalk-date">${new Date(episode.date).toLocaleDateString()}</span>
-                </div>
-                <a href="${episode.link}" target="_blank" class="techtalk-link">Watch Episode</a>
-              </div>
-            </div>
-          `;
-        }).join('');
-      }
-
-      // Load TechTalk episodes when page loads
-      loadTechTalkEpisodes();
-    });
-
-    // Mobile menu toggle
-    document.getElementById('navbar-toggle').addEventListener('click', function() {
-      this.classList.toggle('active');
-      document.getElementById('navbar-menu').classList.toggle('active');
-    });
-  </script>
+  <!-- End Footer Section -->
 </body>
+
 </html>
