@@ -1700,16 +1700,19 @@ html {
   }
 }
 @media (max-width: 600px) {
-  .services-hero {
-    min-height: 120px;
-    height: 32vw;
-    max-height: 180px;
+  .services-hero,
+  .contact-hero {
+    min-height: 350px;
+    height: 60vw;
+    max-height: 450px;
   }
-  .services-hero-content h1 {
+  .services-hero-content h1,
+  .contact-hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .services-hero-content p,
+  .contact-hero-content p {
     font-size: 1.3rem;
-  }
-  .services-hero-content p {
-    font-size: 0.95rem;
   }
 }
 
@@ -1780,15 +1783,15 @@ html {
 }
 @media (max-width: 600px) {
   .contact-hero {
-    min-height: 120px;
-    height: 32vw;
-    max-height: 180px;
+    min-height: 350px;
+    height: 60vw;
+    max-height: 450px;
   }
   .contact-hero-content h1 {
-    font-size: 1.3rem;
+    font-size: 2.2rem;
   }
   .contact-hero-content p {
-    font-size: 0.95rem;
+    font-size: 1.3rem;
   }
 }
 
