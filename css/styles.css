@@ -2009,3 +2009,733 @@ html {
     }
 }
 
+/* Projects Page Styles */
+.projects-main-section {
+  background: #fff;
+  padding: 60px 0 40px 0;
+}
+
+.projects-main-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(62, 140, 255, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #18233a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.project-date {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #3e8cff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.project-link:hover {
+  background: #2d7ae5;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3e8cff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Enhanced Error Message Styles */
+.error-content {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-content h3 {
+  color: #18233a;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.error-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.error-content ul {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px 30px;
+  margin: 1.5rem auto;
+  border-left: 4px solid #3e8cff;
+}
+
+.error-content ul li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.error-content ul li:last-child {
+  margin-bottom: 0;
+}
+
+.error-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.retry-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #3e8cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.retry-button:hover {
+  background: #2d7ae5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(62, 140, 255, 0.3);
+}
+
+.retry-button:active {
+  transform: translateY(0);
+}
+
+.wordpress-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #fff;
+  color: #3e8cff;
+  border: 2px solid #3e8cff;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wordpress-link:hover {
+  background: #3e8cff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(62, 140, 255, 0.3);
+}
+
+.wordpress-link:active {
+  transform: translateY(0);
+}
+
+/* Responsive styles for error handling */
+@media (max-width: 600px) {
+  .error-content {
+    padding: 30px 15px;
+  }
+  
+  .error-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .error-content p {
+    font-size: 1rem;
+  }
+  
+  .error-content ul {
+    padding: 15px 20px;
+    margin: 1rem auto;
+  }
+  
+  .error-content ul li {
+    font-size: 0.9rem;
+  }
+  
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .retry-button,
+  .wordpress-link {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .error-content {
+    padding: 20px 10px;
+  }
+  
+  .error-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .error-content p {
+    font-size: 0.95rem;
+  }
+  
+  .retry-button,
+  .wordpress-link {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive styles for projects */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .project-content {
+    padding: 20px;
+  }
+  
+  .project-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .project-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-main-section {
+    padding: 40px 0 20px 0;
+  }
+  
+  .project-content {
+    padding: 16px;
+  }
+  
+  .project-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .project-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Blog Page Styles */
+.blog-main-section {
+  background: #fff;
+  padding: 60px 0 40px 0;
+}
+
+.blog-main-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(62, 140, 255, 0.15);
+}
+
+.blog-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+.blog-content {
+  padding: 24px;
+}
+
+.blog-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #18233a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.blog-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.blog-date {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.blog-link {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #3e8cff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.blog-link:hover {
+  background: #2d7ae5;
+}
+
+/* Responsive styles for blog */
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .blog-content {
+    padding: 20px;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .blog-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-main-section {
+    padding: 40px 0 20px 0;
+  }
+  
+  .blog-content {
+    padding: 16px;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .blog-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* News Page Styles */
+.news-main-section {
+  background: #fff;
+  padding: 60px 0 40px 0;
+}
+
+.news-main-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(62, 140, 255, 0.15);
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-content {
+  padding: 24px;
+}
+
+.news-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #18233a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.news-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.news-link {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #3e8cff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.news-link:hover {
+  background: #2d7ae5;
+}
+
+/* Responsive styles for news */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .news-content {
+    padding: 20px;
+  }
+  
+  .news-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .news-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-main-section {
+    padding: 40px 0 20px 0;
+  }
+  
+  .news-content {
+    padding: 16px;
+  }
+  
+  .news-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .news-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* TechTalk Page Styles */
+.techtalk-main-section {
+  background: #fff;
+  padding: 60px 0 40px 0;
+}
+
+.techtalk-main-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.techtalk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.techtalk-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.techtalk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(62, 140, 255, 0.15);
+}
+
+.techtalk-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.techtalk-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.techtalk-card:hover .techtalk-image img {
+  transform: scale(1.05);
+}
+
+.techtalk-content {
+  padding: 24px;
+}
+
+.techtalk-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #18233a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.techtalk-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.techtalk-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.techtalk-date {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.techtalk-link {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #3e8cff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.techtalk-link:hover {
+  background: #2d7ae5;
+}
+
+/* Responsive styles for techtalk */
+@media (max-width: 768px) {
+  .techtalk-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .techtalk-content {
+    padding: 20px;
+  }
+  
+  .techtalk-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .techtalk-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .techtalk-main-section {
+    padding: 40px 0 20px 0;
+  }
+  
+  .techtalk-content {
+    padding: 16px;
+  }
+  
+  .techtalk-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .techtalk-content p {
+    font-size: 0.85rem;
+    }
+}
+

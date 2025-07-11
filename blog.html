@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects - NerdzFactory Company</title>
+  <title>Blog - NerdzFactory Company</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -58,8 +58,8 @@
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="news.html">News</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html" class="active">Blog</a>
         <a href="techtalk.html">TechTalk Series</a>
         <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
@@ -67,27 +67,27 @@
     </div>
   </div>
 
-  <!-- Projects Hero Section -->
+  <!-- Blog Hero Section -->
   <section class="services-hero">
     <div class="services-hero-bg"></div>
     <div class="services-hero-content">
-      <h1>Our Projects</h1>
-      <p>Discover our impactful initiatives and transformative work</p>
+      <h1>Our Blog</h1>
+      <p>Insights, updates, and stories from our team</p>
     </div>
   </section>
 
-  <!-- Projects Content Section -->
-  <section class="projects-main-section">
+  <!-- Blog Content Section -->
+  <section class="blog-main-section">
     <div class="container">
-      <div id="projects-loading" class="loading-spinner">
+      <div id="blog-loading" class="loading-spinner">
         <div class="spinner"></div>
-        <p>Loading projects...</p>
+        <p>Loading blog posts...</p>
       </div>
-      <div id="projects-content" class="projects-grid" style="display: none;">
-        <!-- Projects will be loaded here dynamically -->
+      <div id="blog-content" class="blog-grid" style="display: none;">
+        <!-- Blog posts will be loaded here dynamically -->
       </div>
-      <div id="projects-error" class="error-message" style="display: none;">
-        <p>Unable to load projects at the moment. Please visit our <a href="https://nerdzfactory.co/projects/" target="_blank">WordPress site</a> for the latest updates.</p>
+      <div id="blog-error" class="error-message" style="display: none;">
+        <p>Unable to load blog posts at the moment. Please visit our <a href="https://nerdzfactory.co/blog/" target="_blank">WordPress site</a> for the latest updates.</p>
       </div>
     </div>
   </section>
@@ -134,21 +134,21 @@
   </footer>
 
   <script>
-    // WordPress REST API Integration
+    // WordPress REST API Integration for Blog
     document.addEventListener('DOMContentLoaded', function() {
-      const projectsContainer = document.getElementById('projects-content');
-      const loadingSpinner = document.getElementById('projects-loading');
-      const errorMessage = document.getElementById('projects-error');
+      const blogContainer = document.getElementById('blog-content');
+      const loadingSpinner = document.getElementById('blog-loading');
+      const errorMessage = document.getElementById('blog-error');
 
-      // WordPress REST API endpoint for projects
+      // WordPress REST API endpoint for blog posts
       const apiUrl = 'https://nerdzfactory.co/wp-json/wp/v2/posts?per_page=50&_embed&orderby=date&order=desc';
 
       // Default fallback image
       const fallbackImage = 'https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png';
 
-      async function loadProjects() {
+      async function loadBlogPosts() {
         try {
-          console.log('Fetching all articles to find projects...');
+          console.log('Fetching all articles to find blog content...');
           
           const response = await fetch(apiUrl, {
             method: 'GET',
@@ -165,38 +165,38 @@
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
           }
 
-          const allProjects = await response.json();
-          console.log('Successfully fetched', allProjects.length, 'total articles');
+          const allPosts = await response.json();
+          console.log('Successfully fetched', allPosts.length, 'total posts');
           
-          if (!Array.isArray(allProjects)) {
-            throw new Error('Invalid response format: expected array of projects');
+          if (!Array.isArray(allPosts)) {
+            throw new Error('Invalid response format: expected array of posts');
           }
           
-          // Filter projects by looking for Projects category
-          const projects = allProjects.filter(project => {
-            // Check if it's categorized as Projects
-            const isProjectsCategory = project._embedded?.['wp:term']?.some(termGroup => 
+          // Filter posts by looking for articles category
+          const posts = allPosts.filter(post => {
+            // Check if it's categorized as articles
+            const isArticlesCategory = post._embedded?.['wp:term']?.some(termGroup => 
               termGroup.some(term => 
                 term.taxonomy === 'category' && 
-                (term.name === 'Projects' || term.slug === 'projects')
+                (term.name === 'articles' || term.slug === 'articles')
               )
             );
             
-            return isProjectsCategory;
+            return isArticlesCategory;
           });
           
-          console.log('Found', projects.length, 'projects in Projects category');
+          console.log('Found', posts.length, 'articles in Articles category');
           
-          if (projects.length === 0) {
-            throw new Error('No projects found in the Projects category. Please check if projects are properly categorized.');
+          if (posts.length === 0) {
+            throw new Error('No articles found in the Articles category. Please check if posts are properly categorized.');
           }
 
-          displayProjects(projects);
+          displayBlogPosts(posts);
           loadingSpinner.style.display = 'none';
-          projectsContainer.style.display = 'grid';
+          blogContainer.style.display = 'grid';
           
         } catch (error) {
-          console.error('Error loading projects:', error);
+          console.error('Error loading blog posts:', error);
           console.error('Error details:', {
             message: error.message,
             stack: error.stack,
@@ -209,23 +209,23 @@
       }
 
       function showError(message) {
-        const errorContainer = document.getElementById('projects-error');
+        const errorContainer = document.getElementById('blog-error');
         errorContainer.innerHTML = `
           <div class="error-content">
             <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #ff6b6b; margin-bottom: 1rem;"></i>
-            <h3>Unable to Load Projects</h3>
+            <h3>Unable to Load Blog Posts</h3>
             <p>${message}</p>
             <p>This might be due to:</p>
             <ul style="text-align: left; max-width: 400px; margin: 1rem auto;">
               <li>Network connectivity issues</li>
               <li>WordPress site temporarily unavailable</li>
-              <li>No projects in the Projects category</li>
+              <li>No posts in the Blog category</li>
             </ul>
             <div class="error-actions">
-              <button onclick="retryLoadProjects()" class="retry-button">
+              <button onclick="retryLoadBlog()" class="retry-button">
                 <i class="fas fa-redo"></i> Try Again
               </button>
-              <a href="https://nerdzfactory.co/projects/" target="_blank" class="wordpress-link">
+              <a href="https://nerdzfactory.co/blog/" target="_blank" class="wordpress-link">
                 <i class="fas fa-external-link-alt"></i> Visit WordPress Site
               </a>
             </div>
@@ -234,71 +234,71 @@
         errorContainer.style.display = 'block';
       }
 
-      function displayProjects(projects) {
+      function displayBlogPosts(posts) {
         try {
-          projectsContainer.innerHTML = projects.map((project, index) => {
-            // Safely extract project data with fallbacks
-            const title = project.title?.rendered || 'Untitled Project';
-            const excerpt = project.excerpt?.rendered || project.content?.rendered || 'No excerpt available';
+          blogContainer.innerHTML = posts.map((post, index) => {
+            // Safely extract post data with fallbacks
+            const title = post.title?.rendered || 'Untitled Post';
+            const excerpt = post.excerpt?.rendered || post.content?.rendered || 'No excerpt available';
             const cleanExcerpt = excerpt.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-            const link = project.link || '#';
-            const date = project.date ? new Date(project.date).toLocaleDateString() : 'No date';
+            const link = post.link || '#';
+            const date = post.date ? new Date(post.date).toLocaleDateString() : 'No date';
             
             // Handle featured image with fallback
             let featuredImage = fallbackImage;
             try {
-              if (project._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
-                featuredImage = project._embedded['wp:featuredmedia'][0].source_url;
+              if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
+                featuredImage = post._embedded['wp:featuredmedia'][0].source_url;
               }
             } catch (imgError) {
-              console.warn('Error processing featured image for project:', index, imgError);
+              console.warn('Error processing featured image for post:', index, imgError);
             }
             
             return `
-              <div class="project-card">
-                <div class="project-image">
+              <div class="blog-card">
+                <div class="blog-image">
                   <img src="${featuredImage}" 
                        alt="${title}" 
                        onerror="this.src='${fallbackImage}'; this.onerror=null;"
                        loading="lazy">
                 </div>
-                <div class="project-content">
+                <div class="blog-content">
                   <h3>${title}</h3>
                   <p>${cleanExcerpt}</p>
-                  <div class="project-meta">
-                    <span class="project-date">${date}</span>
+                  <div class="blog-meta">
+                    <span class="blog-date">${date}</span>
                   </div>
-                  <a href="${link}" target="_blank" class="project-link">Read More</a>
+                  <a href="${link}" target="_blank" class="blog-link">Read More</a>
                 </div>
               </div>
             `;
           }).join('');
           
-          console.log('Successfully displayed', projects.length, 'projects');
+          console.log('Successfully displayed', posts.length, 'blog posts');
           
         } catch (displayError) {
-          console.error('Error displaying projects:', displayError);
-          showError('Error displaying projects. Please try again.');
+          console.error('Error displaying blog posts:', displayError);
+          showError('Error displaying blog posts. Please try again.');
         }
       }
 
       // Global retry function
-      window.retryLoadProjects = function() {
-        console.log('Retrying to load projects...');
-        const errorContainer = document.getElementById('projects-error');
-        const loadingSpinner = document.getElementById('projects-loading');
+      window.retryLoadBlog = function() {
+        console.log('Retrying to load blog posts...');
+        const errorContainer = document.getElementById('blog-error');
+        const loadingSpinner = document.getElementById('blog-loading');
         
         errorContainer.style.display = 'none';
         loadingSpinner.style.display = 'flex';
         
         // Add a small delay before retrying
         setTimeout(() => {
-          loadProjects();
+          loadBlogPosts();
         }, 500);
       };
 
-      // Load projects when page loads
-      loadProjects();
+      // Load blog posts when page loads
+      loadBlogPosts();
     });
 
     // Mobile menu toggle
@@ -308,5 +308,4 @@
     });
   </script>
 </body>
-</html>
-
+</html> 

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NerdzFactory</title>
+  <title>TechTalk Series - NerdzFactory Company</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/cropped-NF-LOGO-NEW-1024x1024-removebg-preview-1.png">
 </head>
+
 <body>
+  <!-- Include your existing navbar and topbar here -->
   <div class="topbar" role="banner">
     <div class="left">
       <div class="contact">
@@ -30,14 +35,16 @@
     </div>
     <div class="whatsapp">
       <a href="https://wa.me/2349164638956" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
-        <img src="https://nerdzfactory.co/wp-content/uploads/2024/12/icons8-whatsapp-240.png" alt="WhatsApp" width="28" height="28">
+        <img src="https://nerdzfactory.co/wp-content/uploads/2024/12/icons8-whatsapp-240.png" alt="WhatsApp" width="28"
+          height="28">
       </a>
     </div>
   </div>
   <div class="navbar" role="navigation">
     <div class="logo">
       <a href="index.html">
-        <img src="https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png" alt="NerdzFactory Logo" width="180" height="45">
+        <img src="https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png" alt="NerdzFactory Logo"
+          width="180" height="45">
       </a>
     </div>
     <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
@@ -50,15 +57,148 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="https://nerdzfactory.co/news/">News</a>
+        <a href="news.html">News</a>
         <a href="projects.html">Projects</a>
-        <a href="https://nerdzfactory.co/blog/">Blog</a>
-        <a href="techtalk.html">TechTalk Series</a>
+        <a href="blog.html">Blog</a>
+        <a href="techtalk.html" class="active">TechTalk Series</a>
         <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
       </nav>
     </div>
   </div>
-  <script src="js/scripts.js"></script>
+
+  <!-- TechTalk Hero Section -->
+  <section class="services-hero">
+    <div class="services-hero-bg"></div>
+    <div class="services-hero-content">
+      <h1>TechTalk Series</h1>
+      <p>Insights and discussions on technology and innovation</p>
+    </div>
+  </section>
+
+  <!-- TechTalk Content Section -->
+  <section class="techtalk-main-section">
+    <div class="container">
+      <div id="techtalk-loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading TechTalk episodes...</p>
+      </div>
+      <div id="techtalk-content" class="techtalk-grid" style="display: none;">
+        <!-- TechTalk episodes will be loaded here dynamically -->
+      </div>
+      <div id="techtalk-error" class="error-message" style="display: none;">
+        <p>Unable to load TechTalk episodes at the moment. Please visit our <a href="https://nerdzfactory.co/techtalk/" target="_blank">WordPress site</a> for the latest updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <img src="https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png" alt="NerdzFactory Logo" class="footer-logo">
+        <p class="footer-description">NerdzFactory is a social innovation and human capital development company that leverages technology to transform lives, businesses and society.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="techtalk.html">TechTalk Series</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Get In Touch</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt footer-pin"></i><strong>Nigeria</strong> – 2, Insha Allah close, Off Ramat Crescent, Ogudu GRA, Ojota, Lagos.</li>
+          <li><i class="fas fa-map-marker-alt footer-pin"></i><strong>Canada</strong> – 47 Big Blue Stem Rd, Winnipeg MB R2G 4L9.</li>
+          <li><i class="fas fa-map-marker-alt footer-pin"></i><strong>USA</strong> – 7120 S. Wabash Avenue, Chicago, Illinois 60619.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025 NerdzFactory Company | Powered by NerdzFactory Company</p>
+    </div>
+  </footer>
+
+  <script>
+    // WordPress REST API Integration for TechTalk Series
+    document.addEventListener('DOMContentLoaded', function() {
+      const techtalkContainer = document.getElementById('techtalk-content');
+      const loadingSpinner = document.getElementById('techtalk-loading');
+      const errorMessage = document.getElementById('techtalk-error');
+
+      // WordPress REST API endpoint for TechTalk episodes
+      const apiUrl = 'https://nerdzfactory.co/wp-json/wp/v2/posts?categories=techtalk&per_page=12&_embed';
+
+      async function loadTechTalkEpisodes() {
+        try {
+          const response = await fetch(apiUrl);
+          
+          if (!response.ok) {
+            throw new Error('Failed to fetch TechTalk episodes');
+          }
+
+          const episodes = await response.json();
+          
+          if (episodes.length === 0) {
+            throw new Error('No TechTalk episodes found');
+          }
+
+          displayTechTalkEpisodes(episodes);
+          loadingSpinner.style.display = 'none';
+          techtalkContainer.style.display = 'grid';
+        } catch (error) {
+          console.error('Error loading TechTalk episodes:', error);
+          loadingSpinner.style.display = 'none';
+          errorMessage.style.display = 'block';
+        }
+      }
+
+      function displayTechTalkEpisodes(episodes) {
+        techtalkContainer.innerHTML = episodes.map(episode => {
+          const featuredImage = episode._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://nerdzfactory.co/wp-content/uploads/2024/12/NF-LOGO-mixed.png';
+          const excerpt = episode.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
+          
+          return `
+            <div class="techtalk-card">
+              <div class="techtalk-image">
+                <img src="${featuredImage}" alt="${episode.title.rendered}">
+              </div>
+              <div class="techtalk-content">
+                <h3>${episode.title.rendered}</h3>
+                <p>${excerpt}</p>
+                <div class="techtalk-meta">
+                  <span class="techtalk-date">${new Date(episode.date).toLocaleDateString()}</span>
+                </div>
+                <a href="${episode.link}" target="_blank" class="techtalk-link">Watch Episode</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Load TechTalk episodes when page loads
+      loadTechTalkEpisodes();
+    });
+
+    // Mobile menu toggle
+    document.getElementById('navbar-toggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('navbar-menu').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
