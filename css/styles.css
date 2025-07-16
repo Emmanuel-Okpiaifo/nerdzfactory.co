@@ -149,10 +149,12 @@ html {
 }
 
 /* Hero Section */
-.hero {
+.hero,
+.techtalk-hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    height: 60vh;
+    min-height: 320px;
+    max-height: 480px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -2382,6 +2384,15 @@ html {
   transition: transform 0.3s ease;
 }
 
+/* Special styling for fallback logo images */
+.blog-image img[src*="NF logo (1).png"] {
+  object-fit: contain;
+  padding: 30px;
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+}
+
 .blog-card:hover .blog-image img {
   transform: scale(1.05);
 }
@@ -2898,5 +2909,31 @@ html {
   .techtalk-body {
     font-size: 0.95rem;
     }
+}
+
+.techtalk-hero {
+  min-height: 380px;
+  height: 48vw;
+  max-height: 520px;
+}
+@media (max-width: 900px) {
+  .techtalk-hero {
+    min-height: 220px;
+    height: 38vw;
+    max-height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .techtalk-hero {
+    min-height: 350px;
+    height: 60vw;
+    max-height: 450px;
+  }
+}
+
+.techtalk-hero .slide {
+  background-position: center center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
 }
 
